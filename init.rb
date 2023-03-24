@@ -25,8 +25,7 @@ preparation_class.to_prepare do
   require_dependency 'computed_custom_field/hooks'
 end
 
-RedmineApp::Application.configure do
-  config.after_initialize do
-    ComputedCustomField.patch_models
-  end
+Rails.application.config.after_initialize do
+  require_relative 'lib/computed_custom_field/computed_custom_field'
+  ComputedCustomField.patch_models
 end
