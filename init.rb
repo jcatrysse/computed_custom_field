@@ -17,7 +17,7 @@ else
 end
 
 preparation_class.to_prepare do
-  require_dependency 'computed_custom_field/computed_custom_field'
+  require_dependency 'computed_custom_field'
   require_dependency 'computed_custom_field/custom_field_patch'
   require_dependency 'computed_custom_field/custom_fields_helper_patch'
   require_dependency 'computed_custom_field/model_patch'
@@ -26,6 +26,6 @@ preparation_class.to_prepare do
 end
 
 Rails.application.config.after_initialize do
-  require_relative 'lib/computed_custom_field/computed_custom_field'
+  require_relative 'lib/computed_custom_field'
   ComputedCustomField.patch_models
 end
